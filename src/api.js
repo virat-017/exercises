@@ -18,6 +18,10 @@ const chestExercise=require("./BodyParts/chest.js")
 
 const app = express();
 //app.use(cors());
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // For legacy browser support
+}
 
 
 const router = express.Router();
@@ -57,20 +61,17 @@ router.get("/exercises/bodyPartList/upperLegs", (req, res) => {
 router.get("/exercises/bodyPartList/waist", (req, res) => {
   res.status(200).json(waist)
 });
-router.get("/exercises/exercise/:id/", (req, res) => {
+
+router.get("/exercises/exercise/:id/", cors(corsOptions), (req, res) => {
   const user_id = req.params.id;
   res.send(exerciseData.filter(element=>element.id==user_id))
   //res.status(200).json(exerciseData.filter(element=>element.id==user_id))
 });
 
-router.get("/exercises", (req, res) => {
+router.get("/exercises", cors(corsOptions), (req, res) => {
   res.status(200).json(exerciseData)
 });
 
-var corsOptions = {
-    origin: 'http://localhost:3000/',
-    optionsSuccessStatus: 200 // For legacy browser support
-}
 
 app.use(`/.netlify/functions/api`, router,cors(corsOptions));
 
