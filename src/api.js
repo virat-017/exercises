@@ -17,7 +17,7 @@ const waist=require("./BodyParts/waist.js")
 const chestExercise=require("./BodyParts/chest.js")
 
 const app = express();
-app.use(cors());
+//app.use(cors());
 const router = express.Router();
 
 //All the body parts will be shown here
