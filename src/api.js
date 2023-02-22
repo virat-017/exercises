@@ -17,7 +17,9 @@ const waist=require("./BodyParts/waist.js")
 const chestExercise=require("./BodyParts/chest.js")
 
 const app = express();
-//app.use(cors());
+app.use(cors());
+
+
 const router = express.Router();
 
 //All the body parts will be shown here
@@ -62,6 +64,11 @@ router.get("/exercises", (req, res) => {
 
 
 app.use(`/.netlify/functions/api`, router);
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authortization');
+  res.setHeader('Acces-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+})
 
 module.exports = app;
 module.exports.handler = serverless(app);
