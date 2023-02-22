@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require('cors');
+//const cors = require('cors');
 const serverless = require("serverless-http");
 const allBodyParts=require("./BodyParts/AllBodyParts.js")
 const exerciseData = require('./exercises.js')
@@ -17,7 +17,7 @@ const waist=require("./BodyParts/waist.js")
 const chestExercise=require("./BodyParts/chest.js")
 
 const app = express();
-app.use(cors());
+//app.use(cors());
 
 
 const router = express.Router();
