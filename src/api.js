@@ -62,12 +62,18 @@ router.get("/exercises", (req, res) => {
   res.status(200).json(exerciseData)
 });
 
-var corsOptions = {
+/*var corsOptions = {
     origin: 'http://localhost:3000',
     optionsSuccessStatus: 200 // For legacy browser support
 }
+*/
 
-app.use(`/.netlify/functions/api`, router,cors(corsOptions));
+app.use(cors({
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200 // For legacy browser support
+}))
+
+app.use(`/.netlify/functions/api`, router);
 
 
 
