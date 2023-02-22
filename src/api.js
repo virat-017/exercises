@@ -1,5 +1,5 @@
 const express = require("express");
-//const cors = require('cors');
+const cors = require('cors');
 const serverless = require("serverless-http");
 const allBodyParts=require("./BodyParts/AllBodyParts.js")
 const exerciseData = require('./exercises.js')
@@ -62,13 +62,14 @@ router.get("/exercises", (req, res) => {
   res.status(200).json(exerciseData)
 });
 
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200 // For legacy browser support
+}
 
-app.use(`/.netlify/functions/api`, router);
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authortization');
-  res.setHeader('Acces-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
-})
+app.use(`/.netlify/functions/api`, router,cors(corsOptions));
+
+
 
 module.exports = app;
 module.exports.handler = serverless(app);
