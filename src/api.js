@@ -68,6 +68,20 @@ router.get("/exercises/exercise/:id/", cors(corsOptions), (req, res) => {
   //res.status(200).json(exerciseData.filter(element=>element.id==user_id))
 });
 
+router.get("/exercises/target/:id/", cors(corsOptions), (req, res) => {
+  const user_id = req.params.id;
+  //res.send(user_id)
+  res.send(exerciseData.filter(element=>element.target==user_id))
+  //res.status(200).json(exerciseData.filter(element=>element.id==user_id))
+});
+
+router.get("/exercises/equipment/:id/", cors(corsOptions), (req, res) => {
+  const user_id = req.params.id;
+  //res.send(user_id)
+  res.send(exerciseData.filter(element=>element.equipment==user_id))
+  //res.status(200).json(exerciseData.filter(element=>element.id==user_id))
+});
+
 router.get("/exercises", cors(corsOptions), (req, res) => {
   res.status(200).json(exerciseData)
 });
