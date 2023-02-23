@@ -31,34 +31,34 @@ router.get("/exercises/bodyPartList",cors(corsOptions), (req, res) => {
   res.status(200).json(allBodyParts)
 });
 
-router.get("/exercises/bodyPartList/back", (req, res) => {
+router.get("/exercises/bodyPartList/back",cors(corsOptions), (req, res) => {
   res.status(200).json(back)
 });
-router.get("/exercises/bodyPartList/cardio", (req, res) => {
+router.get("/exercises/bodyPartList/cardio",cors(corsOptions), (req, res) => {
   res.status(200).json(cardio)
 });
-router.get("/exercises/bodyPartList/chest", (req, res) => {
+router.get("/exercises/bodyPartList/chest",cors(corsOptions), (req, res) => {
   res.status(200).json(chest)
 });
-router.get(`/exercises/bodyPartList/lowerarms`, (req, res) => {
+router.get(`/exercises/bodyPartList/lowerarms`,cors(corsOptions), (req, res) => {
   res.status(200).json(lowerArms)
 });
-router.get("/exercises/bodyPartList/lowerlegs", (req, res) => {
+router.get("/exercises/bodyPartList/lowerlegs",cors(corsOptions), (req, res) => {
   res.status(200).json(lowerLegs)
 });
-router.get("/exercises/bodyPartList/neck", (req, res) => {
+router.get("/exercises/bodyPartList/neck",cors(corsOptions), (req, res) => {
   res.status(200).json(neck)
 });
-router.get("/exercises/bodyPartList/shoulders", (req, res) => {
+router.get("/exercises/bodyPartList/shoulders",cors(corsOptions), (req, res) => {
   res.status(200).json(shoulders)
 });
-router.get("/exercises/bodyPartList/upperArms", (req, res) => {
+router.get("/exercises/bodyPartList/upperArms",cors(corsOptions), (req, res) => {
   res.status(200).json(upperArms)
 });
-router.get("/exercises/bodyPartList/upperLegs", (req, res) => {
+router.get("/exercises/bodyPartList/upperLegs",cors(corsOptions), (req, res) => {
   res.status(200).json(upperLegs)
 });
-router.get("/exercises/bodyPartList/waist", (req, res) => {
+router.get("/exercises/bodyPartList/waist",cors(corsOptions), (req, res) => {
   res.status(200).json(waist)
 });
 
