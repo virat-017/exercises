@@ -27,7 +27,7 @@ var corsOptions = {
 const router = express.Router();
 
 //All the body parts will be shown here
-router.get("/exercises/bodyPartList", (req, res) => {
+router.get("/exercises/bodyPartList",cors(corsOptions), (req, res) => {
   res.status(200).json(allBodyParts)
 });
 
